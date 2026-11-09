@@ -4,5 +4,10 @@
     { "source": "/site", "destination": "/", "permanent": true },
     { "source": "/planos", "destination": "/#planos", "permanent": true },
     { "source": "/docs", "destination": "/#docs", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/download", "destination": "/app.html" },
+    { "source": "/baixar", "destination": "/app.html" },
+    { "source": "/app", "destination": "/app.html" }
   ]
 }
