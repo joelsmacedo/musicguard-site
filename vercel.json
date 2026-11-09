@@ -1,9 +1,8 @@
 {
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/site", "destination": "/index.html" },
-    { "source": "/planos", "destination": "/index.html" },
-    { "source": "/docs", "destination": "/index.html" },
-    { "source": "/app", "destination": "/app.html" }
+  "redirects": [
+    { "source": "/site", "destination": "/", "permanent": true },
+    { "source": "/planos", "destination": "/#planos", "permanent": true },
+    { "source": "/docs", "destination": "/#docs", "permanent": true }
   ]
 }
