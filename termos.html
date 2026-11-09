@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Termos de Uso — MusicGuard</title>
+  
+  <link rel="icon" type="image/svg+xml" href="logo.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+  <link rel="shortcut icon" href="favicon.ico"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            brand: {
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-200 min-h-screen font-sans antialiased flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-slate-900 bg-slate-950/80 backdrop-blur-xl sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="logo.svg" alt="MusicGuard" class="w-8 h-8 rounded-lg"/>
+        <span class="font-bold text-white tracking-tight">MusicGuard</span>
+      </a>
+      <a href="/" class="text-xs text-slate-400 hover:text-white transition-colors flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">arrow_back</span> Voltar ao Site
+      </a>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="flex-1 py-12 px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto space-y-8">
+      
+      <div class="space-y-2 border-b border-slate-800 pb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold uppercase">
+          Contrato de Licença & Prestação de Serviços
+        </div>
+        <h1 class="text-3xl font-extrabold text-white">Termos de Uso</h1>
+        <p class="text-xs text-slate-400 font-mono">Última atualização: Novembro de 2026 • CNPJ: 64.002.509/0001-56</p>
+      </div>
+
+      <div class="space-y-6 text-sm text-slate-300 leading-relaxed text-justify">
+        
+        <section class="space-y-2">
+          <h2 class="text-base font-bold text-white">1. Objeto e Natureza do Serviço</h2>
+          <p>
+            O <strong>MusicGuard</strong> (operado sob o CNPJ 64.002.509/0001-56) é uma solução tecnológica de software local-first e serviços digitais projetada para auxiliar compositores, produtores musicais e criadores de conteúdo a gerenciar seu acervo sonoro, transcrever partituras e arquivos MIDI computacionalmente e registrar a integridade e anterioridade cronológica de seus arquivos via protocolos criptográficos abertos (OpenTimestamps / Bitcoin Blockchain).
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-base font-bold text-white">2. Natureza Jurídica da Anterioridade e Direitos Autorais</h2>
+          <p>
+            Nos termos do <strong>Artigo 18 da Lei Federal nº 9.610/1998</strong> (Lei de Direitos Autorais brasileira) e da <strong>Convenção de Berna</strong>, a proteção sobre a criação de espírito nasce no instante da sua criação, independentemente de qualquer registro prévio perante órgãos públicos ou cartórios.
+          </p>
+          <p>
+            O MusicGuard gera provas técnicas documentais (hashes criptográficos SHA-256 e selo temporal imutável) admitidas no ordenamento jurídico nacional conforme o <strong>Artigo 411 do Código de Processo Civil (Lei nº 13.105/2015)</strong> e a Medida Provisória nº 2.200-2/2001. O usuário reconhece que o sistema atesta a anterioridade da posse e a integridade matemática dos arquivos na data carimbada, cabendo ao usuário a declaração de originalidade e titularidade dos insumos fornecidos.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-base font-bold text-white">3. Criações Auxiliadas por Inteligência Artificial (Suno, Udio, DAWs)</h2>
+          <p>
+            O usuário declara estar ciente de que as diretrizes internacionais de direitos autorais conferem proteção jurídica ao <strong>insumo criativo humano</strong> (como a letra original de sua autoria, a seleção e concepção de prompts, o arranjo de stems e a notação melódica). O MusicGuard empacota essa cadeia de custódia completa para fins de comprovação em disputas judiciais, plataformas de streaming e distribuidoras digitais.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-base font-bold text-white">4. Arquitetura Local-First e Privacidade dos Arquivos de Áudio</h2>
+          <p>
+            Em respeito à privacidade e ao segredo industrial musical do usuário, o processamento de áudio, geração de partituras e separação de stems é executado <strong>localmente na máquina do usuário</strong>. Os arquivos pesados de áudio (WAV/MP3) nunca são utilizados pela MusicGuard para fins de comercialização ou para treinar modelos públicos de inteligência artificial de terceiros.
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-base font-bold text-white">5. Direito de Arrependimento e Garantia de Reembolso (Art. 49 do CDC)</h2>
+          <p>
+            Em total observância ao <strong>Artigo 49 da Lei nº 8.078/1990 (Código de Defesa do Consumidor)</strong>, garantimos a todos os novos assinantes o direito incondicional de cancelamento e restituição integral do valor investido no prazo de até <strong>7 (sete) dias corridos</strong> após a contratação.
+          </p>
+          <p>
+            Para exercer seu direito, basta enviar uma solicitação com o e-mail de compra para <a href="mailto:contato@musicguard.com.br" class="text-emerald-400 hover:underline">contato@musicguard.com.br</a>. O estorno será processado pelo mesmo método de pagamento utilizado (Pix ou Cartão).
+          </p>
+        </section>
+
+        <section class="space-y-2">
+          <h2 class="text-base font-bold text-white">6. Canal de Atendimento e Suporte</h2>
+          <p>
+            Dúvidas, suporte técnico e questões sobre licenciamento devem ser encaminhadas ao canal oficial:
+            <br/>
+            <strong>E-mail:</strong> <a href="mailto:contato@musicguard.com.br" class="text-emerald-400 hover:underline">contato@musicguard.com.br</a>
+            <br/>
+            <strong>CNPJ:</strong> 64.002.509/0001-56
+          </p>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-900 py-6 text-center text-xs text-slate-500">
+    <p>© 2026 MusicGuard • CNPJ 64.002.509/0001-56 • Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>

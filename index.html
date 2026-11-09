@@ -217,7 +217,7 @@
                   <span class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold block">Título da Obra</span>
                   <p class="text-sm font-bold text-white flex items-center gap-1.5">
                     <span class="material-symbols-outlined text-[16px] text-emerald-400">music_note</span>
-                    <span>Céu de Neon (Versão Oficial Master)</span>
+                    <span>Horizonte Infinito (Master Mix & Stems)</span>
                   </p>
                 </div>
                 <div class="grid grid-cols-2 gap-3 pt-1 text-xs">
@@ -241,31 +241,39 @@
                   <div class="text-[10px] text-slate-400">Melodia Transcrita</div>
                 </div>
                 <!-- Miniatura QR Code -->
-                <div class="bg-slate-950/50 p-3 rounded-xl border border-slate-800 text-center space-y-1">
-                  <span class="material-symbols-outlined text-emerald-400 text-[24px]">qr_code_2</span>
-                  <div class="text-[11px] font-bold text-slate-200">QR Code Público</div>
-                  <div class="text-[10px] text-slate-400">Auditoria Instantânea</div>
-                </div>
+                <a href="/verify/a7334d969c963869bd3eb733e5d8bf27e066b36ed111ff1f33cd1d8d18ced001" target="_blank" class="bg-slate-950/50 hover:bg-emerald-500/10 p-3 rounded-xl border border-slate-800 hover:border-emerald-500/40 text-center space-y-1 transition-all group">
+                  <span class="material-symbols-outlined text-emerald-400 text-[24px] group-hover:scale-110 transition-transform">qr_code_2</span>
+                  <div class="text-[11px] font-bold text-slate-200 group-hover:text-emerald-400">QR Code Público</div>
+                  <div class="text-[10px] text-emerald-400/80">Auditar Registro &rarr;</div>
+                </a>
               </div>
 
               <!-- Hash e Selo de Blockchain -->
               <div class="pt-2">
                 <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-1">
-                  <span>Hash Criptográfico SHA-256</span>
-                  <span class="text-emerald-400">Imutável</span>
+                  <span>Hash Criptográfico SHA-256 (Merkle Root)</span>
+                  <span class="text-emerald-400 flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Bitcoin Ancorado
+                  </span>
                 </div>
-                <div class="p-2 rounded bg-slate-950 border border-slate-800 font-mono text-[10px] text-slate-400 truncate">
-                  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-                </div>
+                <a href="/verify/a7334d969c963869bd3eb733e5d8bf27e066b36ed111ff1f33cd1d8d18ced001" target="_blank" title="Clique para auditar este registro no portal de verificação pública" class="block p-2 rounded bg-slate-950 border border-emerald-500/30 hover:border-emerald-400 font-mono text-[10px] text-emerald-300 truncate transition-all group">
+                  <div class="flex items-center justify-between gap-1.5">
+                    <span class="truncate">a7334d969c963869bd3eb733e5d8bf27e066b36ed111ff1f33cd1d8d18ced001</span>
+                    <span class="material-symbols-outlined text-[14px] text-emerald-400 group-hover:translate-x-0.5 transition-transform shrink-0">open_in_new</span>
+                  </div>
+                </a>
               </div>
 
               <!-- Rodapé do Card -->
               <div class="flex items-center justify-between text-[10px] text-slate-400 pt-2 border-t border-slate-800/80">
                 <span class="flex items-center gap-1">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  Registro descentralizado e perpétuo
+                  Registro OpenTimestamps imutável
                 </span>
-                <span class="font-bold text-emerald-400">Dossiê Válido</span>
+                <a href="/verify/a7334d969c963869bd3eb733e5d8bf27e066b36ed111ff1f33cd1d8d18ced001" target="_blank" class="font-bold text-emerald-400 hover:underline flex items-center gap-1">
+                  Ver Certidão Forense &rarr;
+                </a>
               </div>
             </div>
           </div>
@@ -287,7 +295,7 @@
           Você cria músicas incríveis. Mas se alguém copiar, como você prova que a música é sua?
         </h3>
         <p class="text-slate-300 text-base leading-relaxed">
-          Com a popularização de plataformas de IA (como Suno e Udio) e a velocidade com que novas faixas sobem no Spotify e YouTube, disputas de direitos autorais se tornaram diárias. Quem não tem uma prova irrefutável de data, melodia e letra corre o risco de perder sua criação.
+          Com a popularização de plataformas de IA (como Suno e Udio) e a velocidade com que novas faixas sobem no Spotify e YouTube, disputas de direitos autorais se tornaram diárias. Quem não tem uma comprovação técnica sólida de anterioridade, melodia e letra corre o risco de perder sua criação.
         </p>
       </div>
 
@@ -354,7 +362,7 @@
             </li>
             <li class="flex items-start gap-2.5">
               <span class="material-symbols-outlined text-emerald-400 text-[18px] shrink-0 mt-0.5">check_circle</span>
-              <span><strong>Certificado Oficial com QR Code:</strong> Apresente o PDF em disputas com plataformas ou distribuidoras com verificação pública.</span>
+              <span><strong>Dossiê & Certidão com QR Code:</strong> Apresente a prova pericial em PDF em disputas com plataformas ou distribuidoras com verificação pública.</span>
             </li>
           </ul>
         </div>
@@ -415,9 +423,9 @@
           <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-emerald-400 font-bold text-lg mb-4 group-hover:scale-110 transition-transform">
             4
           </div>
-          <h4 class="text-base font-bold text-white mb-2">Certificado com QR Code</h4>
+          <h4 class="text-base font-bold text-white mb-2">Dossiê com QR Code</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Baixe o Certificado Oficial em PDF com selo de anterioridade e QR Code para auditoria instantânea por qualquer ouvinte, plataforma ou juiz.
+            Baixe a Certidão de Anterioridade em PDF com manifesto criptográfico e QR Code para auditoria instantânea por qualquer ouvinte, plataforma ou perito.
           </p>
         </div>
 
@@ -461,14 +469,14 @@
           </p>
         </div>
 
-        <!-- Recurso 3: Certificado Digital Oficial -->
+        <!-- Recurso 3: Certidão de Anterioridade Criptográfica -->
         <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all space-y-3">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
             <span class="material-symbols-outlined text-[22px]">verified</span>
           </div>
-          <h4 class="text-base font-bold text-white">Certificado com QR Code</h4>
+          <h4 class="text-base font-bold text-white">Certidão de Anterioridade com QR Code</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Gere certidões em PDF com layout profissional, contendo data e hora exatas, dados do autor e QR Code para qualquer pessoa auditar online na hora.
+            Gere certidões em PDF com layout profissional, contendo data e hora exatas, cadeia de custódia e QR Code para qualquer pessoa auditar online na hora.
           </p>
         </div>
 
@@ -565,7 +573,7 @@
             <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80 space-y-1.5">
               <div class="font-mono text-emerald-400 font-bold">ETAPA 03</div>
               <div class="font-bold text-white text-sm">Baixe seu Dossiê</div>
-              <p class="text-slate-400 leading-relaxed">Exporte o Certificado Oficial com QR Code e guarde o pacote de provas no seu cofre para qualquer necessidade futura.</p>
+              <p class="text-slate-400 leading-relaxed">Exporte a Certidão de Anterioridade com QR Code e guarde o dossiê probatório no seu cofre para qualquer necessidade futura.</p>
             </div>
           </div>
         </div>
@@ -619,10 +627,20 @@
         <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 space-y-3">
           <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
             <span class="material-symbols-outlined text-[20px]">gavel</span>
-            <span>Como funciona a validade jurídica?</span>
+            <span>Como funciona a validade jurídica e probatória?</span>
           </div>
           <p class="text-xs text-slate-300 leading-relaxed">
-            De acordo com a Lei de Direitos Autorais do Brasil (Lei nº 9.610/98) e a Convenção de Berna (válida em mais de 170 países), o direito autoral nasce no momento da criação da obra e independe de registro em órgãos públicos. No entanto, para vencer qualquer disputa judicial ou derrubada em plataformas, é indispensável comprovar a <strong>anterioridade</strong> (quem criou primeiro) e o <strong>insumo criativo</strong> (letra, melodia e arranjo). O MusicGuard fornece exatamente essa prova pericial completa.
+            De acordo com o Art. 18 da Lei nº 9.610/98 (Lei de Direitos Autorais) e a Convenção de Berna, a proteção autoral <strong>independe de registro formal prévio</strong>. No direito moderno (Art. 411 do Código de Processo Civil), a integridade criptográfica e a datação matemática por blockchain têm plena eficácia probatória para demonstrar a <strong>anterioridade temporal</strong> e a <strong>cadeia de custódia</strong> do seu insumo criativo (letra, prompts e partitura).
+          </p>
+        </div>
+
+        <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 space-y-3">
+          <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+            <span class="material-symbols-outlined text-[20px]">laptop_mac</span>
+            <span>Por que os planos são tão acessíveis (R$ 19 a R$ 24)?</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            O MusicGuard adota a moderna <strong>arquitetura Local-First</strong>: a geração de partituras neurais, o isolamento de faixas e a criptografia rodam diretamente no hardware do seu próprio computador. Seus masters de áudio ficam protegidos no seu disco com <strong>privacidade absoluta</strong> (sem subir para nuvens de terceiros), e nós não repassamos custos caros de servidores ou GPUs para a sua mensalidade.
           </p>
         </div>
 
@@ -632,7 +650,7 @@
             <span>Por que o carimbo de data não pode ser fraudado?</span>
           </div>
           <p class="text-xs text-slate-300 leading-relaxed">
-            O MusicGuard gera uma assinatura matemática única (hash) dos seus arquivos de áudio, partitura e letra, e ancora essa informação em uma rede pública descentralizada (blockchain). Uma vez gravado, ninguém no mundo — nem mesmo nós — tem o poder de alterar a data, a hora ou os arquivos originais.
+            O MusicGuard gera uma assinatura matemática única (hash SHA-256) do pacote da obra e ancora essa informação na blockchain do Bitcoin via protocolo aberto OpenTimestamps. Uma vez gravado no livro-razão público mundial, ninguém — nem mesmo nós — tem o poder de alterar, retroagir ou falsificar a data e hora registradas.
           </p>
         </div>
 
@@ -642,17 +660,17 @@
             <span>Músicas feitas com Suno/Udio têm direitos autorais?</span>
           </div>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Sim! O insumo criativo humano — como a letra que você compôs, os prompts conceituais, a seleção dos melhores takes, a edição da estrutura melódica e o arranjo — constitui autoria protegida. Ter a partitura da melodia e o comprovante do período em que a música foi gerada garante que você tenha provas concretas para defender seu lançamento.
+            Sim! A legislação e diretrizes internacionais protegem expressamente o <strong>insumo criativo humano</strong>: a letra original composta, a engenharia de prompts, os stems selecionados e os arranjos melódicos. O MusicGuard empacota essa cadeia de criação completa com partitura formal em PDF e MIDI, constituindo o dossiê indispensável para reivindicar a titularidade da faixa.
           </p>
         </div>
 
-        <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 space-y-3">
+        <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 space-y-3 md:col-span-2">
           <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
             <span class="material-symbols-outlined text-[20px]">verified_user</span>
-            <span>Como usar o certificado em disputas no YouTube ou Spotify?</span>
+            <span>Como usar a certidão em disputas no YouTube, Spotify ou distribuidoras?</span>
           </div>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Se sua faixa for alvo de reivindicação indevida (Content ID no YouTube ou disputa de catálogo em distribuidoras como DistroKid, TuneCore ou ONErpm), você pode anexar o Certificado PDF do MusicGuard na contranotificação. A outra parte ou os analistas da plataforma podem escanear o QR Code e verificar instantaneamente a data de criação anterior e a partitura melódica.
+            Se sua faixa for alvo de reivindicação indevida (Content ID no YouTube ou disputa de catálogo na DistroKid, TuneCore ou ONErpm), basta anexar a Certidão em PDF do MusicGuard na contranotificação. Qualquer perito, plataforma ou distribuidora pode escanear o QR Code público ou consultar a URL oficial para verificar a anterioridade criptográfica e confrontar a partitura melódica na hora.
           </p>
         </div>
 
@@ -985,19 +1003,50 @@
   <!-- ======================================================== -->
   <footer class="bg-slate-950 border-t border-slate-900 py-12 text-slate-400 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Selo de Garantia e Confiança Legal -->
+      <div class="mb-10 p-6 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+            <span class="material-symbols-outlined text-2xl">verified_user</span>
+          </div>
+          <div>
+            <h5 class="text-sm font-bold text-white flex items-center gap-2">
+              <span>Garantia Incondicional de 7 Dias</span>
+              <span class="text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20">Art. 49 CDC</span>
+            </h5>
+            <p class="text-xs text-slate-400 mt-0.5">
+              Experimente o MusicGuard sem riscos. Se não atender suas expectativas, devolvemos 100% do seu investimento.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 shrink-0 text-xs text-slate-400">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-emerald-400 text-base">lock</span>
+            <span>Pagamento Seguro</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-emerald-400 text-base">bolt</span>
+            <span>Ativação Imediata</span>
+          </div>
+        </div>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
         
-        <!-- Coluna 1: Marca -->
+        <!-- Coluna 1: Marca & CNPJ -->
         <div class="space-y-3 md:col-span-2">
           <div class="flex items-center gap-3">
             <img src="logo.svg" alt="MusicGuard" class="w-8 h-8 rounded-lg"/>
             <span class="text-base font-bold text-white">MusicGuard</span>
           </div>
           <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
-            Plataforma independente de prova de anterioridade autoral e geração automática de partituras e MIDI para criadores musicais modernos.
+            Plataforma independente de prova pericial de anterioridade autoral, cadeia de custódia e geração de partituras e MIDI para criadores musicais.
           </p>
-          <div class="text-[11px] text-slate-500 pt-1">
-            Conforme a Lei Federal nº 9.610/98 (Artigo 18) e a Convenção de Berna.
+          <div class="space-y-1 text-[11px] text-slate-500 pt-1 font-mono">
+            <div>CNPJ: <span class="text-slate-400">64.002.509/0001-56</span></div>
+            <div>Fundamentação: Art. 18 da Lei Federal nº 9.610/98 & Art. 411 do CPC</div>
+            <div>Contato: <a href="mailto:contato@musicguard.com.br" class="text-emerald-400 hover:underline">contato@musicguard.com.br</a></div>
           </div>
         </div>
 
@@ -1008,18 +1057,19 @@
             <li><a href="#o-que-e" class="hover:text-emerald-400 transition-colors">O que é</a></li>
             <li><a href="#como-funciona" class="hover:text-emerald-400 transition-colors">Como funciona</a></li>
             <li><a href="#recursos" class="hover:text-emerald-400 transition-colors">Recursos</a></li>
-            <li><a href="#docs" class="hover:text-emerald-400 transition-colors">Documentação</a></li>
+            <li><a href="#docs" class="hover:text-emerald-400 transition-colors">Documentação Jurídica</a></li>
             <li><a href="#planos" class="hover:text-emerald-400 transition-colors">Planos & Preços</a></li>
           </ul>
         </div>
 
-        <!-- Coluna 3: Acesso ao Sistema -->
+        <!-- Coluna 3: Auditoria & Legal -->
         <div class="space-y-2">
-          <h5 class="text-white font-bold text-xs uppercase tracking-wider">Acesso ao App</h5>
+          <h5 class="text-white font-bold text-xs uppercase tracking-wider">Auditoria & Legal</h5>
           <ul class="space-y-1.5 text-xs">
-            <li><a href="/app" class="hover:text-emerald-400 transition-colors font-medium text-emerald-400 flex items-center gap-1">Entrar no Sistema &rarr;</a></li>
-            <li><a href="/app" class="hover:text-emerald-400 transition-colors">Painel de Músicas</a></li>
-            <li><a href="/app" class="hover:text-emerald-400 transition-colors">Auditar Certificado</a></li>
+            <li><a href="/app" class="hover:text-emerald-400 transition-colors font-medium text-emerald-400 flex items-center gap-1">Baixar App Desktop &rarr;</a></li>
+            <li><a href="/verify/a7334d969c963869bd3eb733e5d8bf27e066b36ed111ff1f33cd1d8d18ced001" target="_blank" class="hover:text-emerald-400 transition-colors">Portal Validador Público</a></li>
+            <li><a href="/termos" class="hover:text-emerald-400 transition-colors">Termos de Uso</a></li>
+            <li><a href="/privacidade" class="hover:text-emerald-400 transition-colors">Política de Privacidade</a></li>
           </ul>
         </div>
 
@@ -1027,9 +1077,9 @@
 
       <!-- Copyright e Disclaimer Legal -->
       <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-        <p>© 2026 MusicGuard. Todos os direitos reservados.</p>
+        <p>© 2026 MusicGuard • CNPJ 64.002.509/0001-56. Todos os direitos reservados.</p>
         <p class="text-center sm:text-right">
-          O MusicGuard fornece carimbo temporal criptográfico descentralizado e análise melódica independente.
+          Carimbo temporal criptográfico descentralizado (Bitcoin OpenTimestamps) e perícia melódica computacional.
         </p>
       </div>
     </div>

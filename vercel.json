@@ -8,6 +8,10 @@
   "rewrites": [
     { "source": "/download", "destination": "/app.html" },
     { "source": "/baixar", "destination": "/app.html" },
-    { "source": "/app", "destination": "/app.html" }
+    { "source": "/app", "destination": "/app.html" },
+    { "source": "/verify/:hash", "destination": "/verify.html" },
+    { "source": "/verify", "destination": "/verify.html" },
+    { "source": "/termos", "destination": "/termos.html" },
+    { "source": "/privacidade", "destination": "/privacidade.html" }
   ]
 }

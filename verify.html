@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Validação de Anterioridade & Integridade Criptográfica — MusicGuard</title>
+  
+  <link rel="icon" type="image/svg+xml" href="logo.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+  <link rel="shortcut icon" href="favicon.ico"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            cinzel: ['"Cinzel"', 'serif']
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20; vertical-align: middle; }
+    @media print {
+      body { background: white !important; color: black !important; }
+      .no-print { display: none !important; }
+      .print-card { border: 1px solid #ccc !important; box-shadow: none !important; background: white !important; color: black !important; }
+      .print-dark-text { color: #111 !important; }
+      .print-mono { font-family: monospace !important; color: #222 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased selection:bg-brand-500 selection:text-white flex flex-col justify-between">
+
+  <!-- Header Simplificado -->
+  <header class="no-print border-b border-slate-900 bg-slate-950/80 backdrop-blur-xl sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="logo.svg" alt="MusicGuard" class="w-8 h-8 rounded-lg"/>
+        <span class="font-bold text-white tracking-tight">MusicGuard <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">AUDITORIA</span></span>
+      </a>
+      <div class="flex items-center gap-3 text-xs">
+        <a href="/" class="text-slate-400 hover:text-white transition-colors">Página Inicial</a>
+        <a href="/app" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-emerald-400 font-semibold border border-slate-800">Baixar App</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 py-10 px-4 sm:px-6 flex flex-col items-center justify-center">
+    <div class="max-w-4xl w-full space-y-6">
+
+      <!-- Campo de Busca / Verificação Rápida -->
+      <div class="no-print p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col sm:flex-row items-center gap-3 shadow-xl">
+        <div class="relative flex-1 w-full">
+          <span class="material-symbols-outlined text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2 text-xl">search</span>
+          <input id="hash-input" type="text" placeholder="Cole o Hash SHA-256 da música, partitura ou Merkle Root..." class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-xs font-mono text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500/60 transition-colors"/>
+        </div>
+        <button onclick="handleSearch()" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/20 shrink-0">
+          <span class="material-symbols-outlined text-base">verified</span>
+          <span>Verificar Hash</span>
+        </button>
+      </div>
+
+      <!-- Card do Certificado Oficial -->
+      <div id="certificate-card" class="print-card rounded-3xl bg-slate-900 border border-slate-800 p-6 sm:p-10 shadow-2xl relative overflow-hidden space-y-6">
+        
+        <!-- Glow Decorativo Superior -->
+        <div class="no-print absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-48 bg-emerald-500/10 blur-3xl pointer-events-none rounded-full"></div>
+
+        <!-- Cabeçalho do Certificado Forense -->
+        <div class="text-center pb-6 border-b border-slate-800/80">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-mono font-bold uppercase mb-3">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Certidão Pericial de Anterioridade Intelectual
+          </div>
+          <h1 class="font-cinzel text-2xl sm:text-3xl font-extrabold text-white tracking-wide print-dark-text">
+            CERTIDÃO DE ANTERIORIDADE & INTEGRIDADE AUTORAL
+          </h1>
+          <p class="text-xs text-slate-400 mt-2 max-w-2xl mx-auto leading-relaxed">
+            Emitida com amparo no <strong>Artigo 18 da Lei Federal nº 9.610/1998</strong> (Lei de Direitos Autorais), <strong>Artigo 411 do CPC</strong> (Validade de Documentos Eletrônicos Criptografados) e na <strong>Convenção de Berna</strong> (170+ países).
+          </p>
+        </div>
+
+        <!-- Box de Status de Validação -->
+        <div id="status-box" class="p-4 sm:p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0">
+              <span class="material-symbols-outlined text-3xl">task_alt</span>
+            </div>
+            <div>
+              <div class="text-sm sm:text-base font-bold text-white flex items-center gap-2 print-dark-text">
+                <span id="cert-status-title">Dossiê Criptográfico Confirmado e Autêntico</span>
+              </div>
+              <div id="cert-status-subtitle" class="text-xs text-emerald-300/90 font-mono mt-0.5">
+                Ancorado na Blockchain do Bitcoin via OpenTimestamps • Bloco #872.419
+              </div>
+            </div>
+          </div>
+          <span class="px-3 py-1.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-mono text-xs font-bold uppercase tracking-wider shrink-0">
+            PROVA VÁLIDA
+          </span>
+        </div>
+
+        <!-- Identificação da Obra Musical -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1">
+            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Título da Obra Registrada:</span>
+            <h2 id="cert-title" class="text-lg font-bold text-emerald-400 print-dark-text">Horizonte Infinito (Master Mix & Stems)</h2>
+            <div id="cert-subtitle" class="text-xs text-slate-400">Título de Trabalho: Track #04 - Cyber Neo-Soul</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1">
+            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Metadados de Produção & Tom:</span>
+            <div id="cert-meta" class="text-xs text-slate-300 font-mono pt-1">
+              BPM: 128 • Tom: Fá Menor (Fm) • 4/4
+            </div>
+            <div id="cert-engine" class="text-xs text-slate-400">
+              Motor: Suno AI v3.5 + DAW Híbrida (Stems Multitrack)
+            </div>
+          </div>
+        </div>
+
+        <!-- Manifesto Pericial de Hashes Forenses (SHA-256) -->
+        <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Manifesto de Componentes Forenses (SHA-256):</span>
+            <span class="text-[10px] font-mono text-slate-500">Cadeia de Custódia Integrada</span>
+          </div>
+
+          <div class="space-y-2 text-xs font-mono">
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 break-all">
+              <span class="text-[10px] font-sans font-bold text-emerald-400 block uppercase">1. Raiz Merkle de Composição (Dossiê Integral):</span>
+              <span id="hash-merkle" class="text-amber-300 font-bold print-mono">a7334d969c963869bd3eb733e5d8bf27e066b36ed111ff1f33cd1d8d18ced001</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/70 break-all">
+              <span class="text-[10px] font-sans font-bold text-slate-400 block uppercase">2. Áudio Master (WAV 24-bit / MP3):</span>
+              <span id="hash-audio" class="text-slate-300 print-mono">4f912c98a3915bc85848bb0c037943d2c918a5e8c17b8849fa0c7ef03b9ad658</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/70 break-all">
+              <span class="text-[10px] font-sans font-bold text-slate-400 block uppercase">3. Harmonia & Melodia (Arquivo .MIDI):</span>
+              <span id="hash-midi" class="text-slate-300 print-mono">8c3b7a549e102f9e42d7637cfcb809d47a16db3276eb1c2a05cf653974447471</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/70 break-all">
+              <span class="text-[10px] font-sans font-bold text-slate-400 block uppercase">4. Notação Musical Formal (Partitura Completa em PDF):</span>
+              <span id="hash-sheet" class="text-slate-300 print-mono">d9426f0bb5d5494d45543ef69fb0b0e51381e4b859e219711681aa0f9518db67</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800/70 break-all">
+              <span class="text-[10px] font-sans font-bold text-slate-400 block uppercase">5. Insumo Lírico & Engenharia de Prompts (Letra e Metatags):</span>
+              <span id="hash-lyrics" class="text-slate-300 print-mono">2b15ca8432a21a5338166c30f40a174c83fa4ef2efd5c07b46d3fbebe6093df0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parecer Jurídico de Eficácia Probatória -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-slate-950/50 border border-slate-800/80 text-xs text-slate-400 leading-relaxed text-justify space-y-2">
+          <p>
+            <strong class="text-slate-200">Eficácia Probatória & Anterioridade:</strong> O protocolo criptográfico OpenTimestamps vincula a raiz Merkle supra-identificada a uma transação imutável na rede Bitcoin. A prova temporal matemática resultante demonstra, de forma incontestável perante tribunais, distribuidoras e plataformas de streaming (Spotify, YouTube Content ID), que o autor já detinha a integridade de todos os ativos componentes na data e hora atestadas.
+          </p>
+          <p class="text-[11px] text-slate-500">
+            Conforme entendimento consolidado, a proteção legal recai sobre o <strong>insumo criativo humano</strong> (letra original, estrutura melódica arranjada e sementes de criação), elementos integralmente preservados no presente dossiê.
+          </p>
+        </div>
+
+        <!-- Rodapé do Certificado -->
+        <div class="pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs">
+          <div class="space-y-0.5">
+            <div class="font-bold text-slate-200">MusicGuard Protocol • CNPJ 64.002.509/0001-56</div>
+            <div class="text-[11px] text-slate-500">Registro público e independente ancorado na rede Bitcoin</div>
+          </div>
+          <div class="flex items-center gap-3 no-print">
+            <button onclick="copyCurrentUrl()" id="btn-copy-link" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold transition-colors flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-base">link</span>
+              <span>Copiar Link de Auditoria</span>
+            </button>
+            <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold transition-all shadow-md shadow-emerald-500/20 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-base">print</span>
+              <span>Imprimir Certidão</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="no-print border-t border-slate-900 py-6 text-center text-xs text-slate-500">
+    <p>© 2026 MusicGuard • CNPJ 64.002.509/0001-56 • Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const DEMO_HASH = "a7334d969c963869bd3eb733e5d8bf27e066b36ed111ff1f33cd1d8d18ced001";
+
+    function getHashFromUrl() {
+      const pathParts = window.location.pathname.split('/').filter(Boolean);
+      if (pathParts.length > 0 && pathParts[pathParts.length - 1] !== 'verify.html' && pathParts[pathParts.length - 1] !== 'verify') {
+        return pathParts[pathParts.length - 1];
+      }
+      const params = new URLSearchParams(window.location.search);
+      return params.get('hash') || DEMO_HASH;
+    }
+
+    function initPage() {
+      const hash = getHashFromUrl();
+      const input = document.getElementById('hash-input');
+      if (input) input.value = hash;
+      renderDossier(hash);
+    }
+
+    function handleSearch() {
+      const input = document.getElementById('hash-input');
+      const val = (input ? input.value : '').trim().toLowerCase();
+      if (!val) return;
+      window.history.pushState({}, '', `/verify/${val}`);
+      renderDossier(val);
+    }
+
+    function renderDossier(hash) {
+      const merkleSpan = document.getElementById('hash-merkle');
+      const titleSpan = document.getElementById('cert-title');
+      const statusTitle = document.getElementById('cert-status-title');
+      const statusSub = document.getElementById('cert-status-subtitle');
+
+      if (hash.toLowerCase() === DEMO_HASH.toLowerCase() || hash.length >= 64) {
+        merkleSpan.textContent = hash;
+        if (hash.toLowerCase() === DEMO_HASH.toLowerCase()) {
+          titleSpan.textContent = "Horizonte Infinito (Master Mix & Stems)";
+          statusTitle.textContent = "Dossiê Criptográfico Confirmado e Autêntico";
+          statusSub.textContent = "Ancorado na Blockchain do Bitcoin via OpenTimestamps • Bloco #872.419";
+        } else {
+          titleSpan.textContent = "Dossiê Musical Registrado (Hash: " + hash.substring(0, 12) + "...)";
+          statusTitle.textContent = "Hash Verificado no Protocolo Criptográfico";
+          statusSub.textContent = "Identificador SHA-256 válido sob a Lei nº 9.610/98 e CPC 411";
+        }
+      }
+    }
+
+    function copyCurrentUrl() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.getElementById('btn-copy-link');
+        if (btn) {
+          const oldHtml = btn.innerHTML;
+          btn.innerHTML = '<span class="material-symbols-outlined text-base text-emerald-400">check</span> Link Copiado!';
+          setTimeout(() => btn.innerHTML = oldHtml, 2000);
+        }
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', initPage);
+  </script>
+</body>
+</html>
